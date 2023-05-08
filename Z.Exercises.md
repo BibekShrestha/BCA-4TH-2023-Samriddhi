@@ -11,9 +11,11 @@
 
 ### Week 3-4: Functions and Modules
 1. Write a function that takes two numbers as arguments and returns their sum.
+	1. add a third argument to the function that takes operation to perform on first two arguments ( addition, subtraction, multiplication, division)
 2. Write a program that uses the math module to calculate the square root of a number entered by the user.
 3. Write a program that imports a custom module that contains a function to calculate the factorial of a number and uses that function to calculate the factorial of a number entered by the user.    
-4. Write a program that uses recursion to calculate the factorial of a number entered by the user.
+4. Write a function to calculate the factorial of a number entered by the user.
+	1. using recursion
 5. Write a program that reads a file containing a list of numbers and calculates their average.
 6. Write a program that prompts the user to enter a string and a character and counts the number of occurrences of the character in the string.
 7. Write a program that prompts the user to enter two numbers and finds their greatest common divisor (GCD) using the Euclidean algorithm.
