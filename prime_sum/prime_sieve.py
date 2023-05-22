@@ -35,11 +35,6 @@ def sum_prime(n):
                 prime_sieve[multiple] = False
     return prime_sum
 
-def reset_sieve():
-    global SIEVE_CREATED, prime_sieve, limit
-    SIEVE_CREATED = False
-    prime_sieve = []
-
 if __name__ == '__main__':
     sum_of_primes = sum_prime(1000000)
     print("Sum of the first million prime numbers:", sum_of_primes)
