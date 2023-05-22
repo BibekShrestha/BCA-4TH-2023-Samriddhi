@@ -1,30 +1,37 @@
 import math
 
 MAX_LIMIT = 1 * 1000 * 1000 #1 million
-SIEVE_CREATED = False
-prime_sieve = []
-limit = 15_485_863  # Approximation of the millionth prime number
+
+import math
+
+def estimate_nth_prime(n):
+
+    if n < 25:
+        #primes = [2,3,5,7,11,13,17,19,23,29,31,37,41,43,47,53,59,61,67,71,73,79,83,89,97, 101]
+        return 105
+    upper_bound = math.ceil(n * (math.log(n) + math.log(math.log(n)) - 1 + 1.8 * math.log(math.log(n)) / math.log(n)))
+
+    if n > 8601:
+        upper_bound = math.ceil(n * (math.log(n) + math.log(math.log(n)) - 0.9385))
+    return upper_bound
 
 def sum_prime(n):
-    global SIEVE_CREATED, prime_sieve, limit
     if n > MAX_LIMIT:
         raise Exception(f"Not Implemented for primes larger than {MAX_LIMIT}")
-    
-    if not SIEVE_CREATED:
-        prime_sieve = [True] * limit
-        prime_sieve[0] = prime_sieve[1] = False
-        SIEVE_CREATED = True
+    current_limit = estimate_nth_prime(n)
+    prime_sieve = [True] * current_limit
+    prime_sieve[0] = prime_sieve[1] = False
 
     prime_sum = 0
     count = 0
 
-    for num in range(2, limit):
+    for num in range(2, current_limit):
         if prime_sieve[num]:
             prime_sum += num
             count += 1
             if count == n:
                 break
-            for multiple in range(num * num, limit, num):
+            for multiple in range(num * num, current_limit, num):
                 prime_sieve[multiple] = False
     return prime_sum
 
